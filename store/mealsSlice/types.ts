@@ -1,8 +1,8 @@
 export type InitialState = {
-    bowls: Bowl[];
+  bowls: Bowl[];
 };
 
 export type Bowl = {
-    id: string;
-    name: string;
+  id: string;
+  name: string;
 };
