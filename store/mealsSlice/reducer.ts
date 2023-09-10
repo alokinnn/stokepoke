@@ -5,7 +5,12 @@ const reducer = createSlice({
   name: "meals",
   initialState: getInitialState(),
   reducers: {},
-  extraReducers: () => {},
+  extraReducers: () => {
+    //TODO: Implement on a relevant slice
+    // builder.addCase(PURGE, (state) => {
+    //   customEntityAdapter.removeAll(state);
+    // });
+  },
 });
 
 export const mealsReducer = reducer.reducer;
