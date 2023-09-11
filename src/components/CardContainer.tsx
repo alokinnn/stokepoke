@@ -2,7 +2,7 @@ import {View, ViewProps, StyleSheet} from "react-native";
 import {ColorPalette} from "../ColorPalette";
 
 export const CardContainer = (props: ViewProps) => (
-  <View {...props} style={styles.root} />
+  <View {...props} style={[styles.root, props.style]} />
 );
 
 const styles = StyleSheet.create({

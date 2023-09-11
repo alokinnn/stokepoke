@@ -1,10 +1,12 @@
 import {View, Text} from "react-native";
 import {CardContainer} from "../components/CardContainer";
 import {ChoiceSegment} from "../components/ChoiceSegment";
+import {StepIndicatorHeader} from "../components/StepIndicatorHeader";
 
 export const BowlTypeSelectionScreen = () => {
   return (
     <View>
+      <StepIndicatorHeader currentStep={1} totalSteps={4} />
       <CardContainer>
         <ChoiceSegment
           title="Test"
