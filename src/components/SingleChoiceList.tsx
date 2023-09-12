@@ -1,4 +1,11 @@
-import {View, ViewProps, Text, TouchableOpacity, FlatList} from "react-native";
+import {
+  View,
+  ViewProps,
+  Text,
+  TouchableOpacity,
+  FlatList,
+  StyleSheet,
+} from "react-native";
 import {RadioButton} from "./RadioButton";
 import {useCallback} from "react";
 
@@ -21,7 +28,7 @@ export const SingleChoiceList = ({
   const renderItem = useCallback(
     ({item}: {item: SelectableItem}) => (
       <TouchableOpacity
-        onPress={() => onItemSelected(item)}
+        onPress={() => onItemSelected?.(item)}
         style={{flexDirection: "row", alignItems: "center"}}
       >
         <RadioButton isSelected={item.isSelected} />
@@ -35,10 +42,16 @@ export const SingleChoiceList = ({
     <View {...rootProps}>
       <FlatList
         data={items}
-        ItemSeparatorComponent={() => <View height={20} />}
+        ItemSeparatorComponent={() => <View style={styles.separator} />}
         scrollEnabled={false}
         renderItem={renderItem}
       />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  separator: {
+    height: 15,
+  },
+});

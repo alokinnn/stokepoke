@@ -1,4 +1,4 @@
-import {View, StyleSheet} from "react-native";
+import {View, StyleSheet, ScrollView} from "react-native";
 import {StepIndicatorHeader} from "../components/StepIndicatorHeader";
 import {CardContainer} from "../components/CardContainer";
 import {ChoiceSegment} from "../components/ChoiceSegment";
@@ -12,24 +12,37 @@ export const OrderConfigurationScreen = () => {
 
   return (
     <View>
-      <StepIndicatorHeader currentStep={2} totalSteps={4} />
-      <CardContainer>
-        <ChoiceSegment title="Pick and translate">
-          <SingleChoiceList items={source} />
-        </ChoiceSegment>
-        <ChoiceSegment title="Pick and translate2">
-          <SingleChoiceList items={source} />
-        </ChoiceSegment>
-        <ChoiceSegment title="Pick and translate3">
-          <SingleChoiceList items={source} />
-        </ChoiceSegment>
-        <ChoiceSegment
-          title="Pick and translate with desc"
-          description="Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
-        />
-      </CardContainer>
+      <ScrollView>
+        <StepIndicatorHeader currentStep={2} totalSteps={4} />
+        <CardContainer>
+          <ChoiceSegment title="Pick and translate">
+            <SingleChoiceList items={source} />
+          </ChoiceSegment>
+          <ChoiceSegment
+            title="Pick and translate2"
+            style={styles.segmentSpacing}
+          >
+            <SingleChoiceList items={source} />
+          </ChoiceSegment>
+          <ChoiceSegment
+            title="Pick and translate3"
+            style={styles.segmentSpacing}
+          >
+            <SingleChoiceList items={source} />
+          </ChoiceSegment>
+          <ChoiceSegment
+            title="Pick and translate with desc"
+            description="Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
+            style={styles.segmentSpacing}
+          />
+        </CardContainer>
+      </ScrollView>
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  segmentSpacing: {
+    paddingTop: 30,
+  },
+});
