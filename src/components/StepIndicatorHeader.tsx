@@ -5,6 +5,7 @@ type StepIndicatorHeaderProps = ViewProps & {
   currentStep: number;
   totalSteps: number;
 };
+
 export const StepIndicatorHeader = ({
   currentStep,
   totalSteps,
