@@ -2,7 +2,7 @@ import {View, ViewProps, Text, TouchableOpacity, FlatList} from "react-native";
 import {RadioButton} from "./RadioButton";
 import {useCallback} from "react";
 
-type SelectableItem = {
+export type SelectableItem = {
   id: string;
   name: string;
   isSelected: boolean;
