@@ -9,20 +9,16 @@ import {useNavigation} from "@react-navigation/native";
 
 export const BowlTypeSelectionScreen = () => {
   const source = [
-    {id: "234", name: "meat", isSelected: false},
-    {id: "4322423", name: "vegan", isSelected: false},
+    {id: "234", name: "meat"},
+    {id: "4322423", name: "vegan"},
   ];
 
   const navigation = useNavigation();
 
-  const [items, setItems] = useState(source);
+  const [selectedId, setSelectedId] = useState("");
 
   const handleItemSelected = useCallback((item: SelectableItem) => {
-    const matchedItemIndex = source.findIndex(
-      (originItem) => originItem.id === item.id
-    );
-    source[matchedItemIndex].isSelected = true;
-    setItems(source);
+    setSelectedId(item.id);
   }, []);
 
   const handleNextPress = () => {
@@ -40,7 +36,8 @@ export const BowlTypeSelectionScreen = () => {
           >
             <SingleChoiceList
               onItemSelected={handleItemSelected}
-              items={items}
+              items={source}
+              selectedId={selectedId}
             />
           </ChoiceSegment>
         </CardContainer>

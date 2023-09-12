@@ -30,19 +30,23 @@ export const OrderConfigurationScreen = () => {
         <StepIndicatorHeader currentStep={2} totalSteps={4} />
         <CardContainer>
           <ChoiceSegment title="Pick and translate">
-            <SingleChoiceList items={source} onItemSelected={() => {}} />
+            <SingleChoiceList
+              items={source}
+              onItemSelected={() => {}}
+              selectedId="4322423"
+            />
           </ChoiceSegment>
           <ChoiceSegment
             title="Pick and translate2"
             style={styles.segmentSpacing}
           >
-            <SingleChoiceList items={source} />
+            <SingleChoiceList items={source} selectedId="4322423" />
           </ChoiceSegment>
           <ChoiceSegment
             title="Pick and translate3"
             style={styles.segmentSpacing}
           >
-            <SingleChoiceList items={source} />
+            <SingleChoiceList items={source} selectedId="4322423" />
           </ChoiceSegment>
           <ChoiceSegment
             title="Pick and translate with desc"

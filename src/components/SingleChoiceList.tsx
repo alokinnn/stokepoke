@@ -8,22 +8,24 @@ export type SelectableItem = {
   id: string;
   name: string;
   additionalDetail?: string;
-  isSelected: boolean;
 };
 
 type SingleChoiceListProps = ViewProps & {
   items: SelectableItem[];
+  selectedId: string;
   onItemSelected?: (item: SelectableItem) => void;
 };
 
 export const SingleChoiceList = ({
   items,
+  selectedId,
   onItemSelected,
   ...rootProps
 }: SingleChoiceListProps) => {
   const renderItem = useCallback(({item}: {item: SelectableItem}) => {
+    const isSelected = item.id === selectedId;
     const dynamicLabelStyle = {
-      color: item.isSelected ? ColorPalette.red : ColorPalette.black,
+      color: isSelected ? ColorPalette.red : ColorPalette.black,
     };
 
     return (
@@ -33,7 +35,7 @@ export const SingleChoiceList = ({
         detailLabel={item.additionalDetail}
         labelStyle={dynamicLabelStyle}
       >
-        <RadioButton isSelected={item.isSelected} />
+        <RadioButton isSelected={isSelected} />
       </ChoiceRow>
     );
   }, []);
