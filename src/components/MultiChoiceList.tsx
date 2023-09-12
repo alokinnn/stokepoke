@@ -1,37 +1,37 @@
-import {View, ViewProps, Text, FlatList, StyleSheet} from "react-native";
-import {RadioButton} from "./RadioButton";
 import {useCallback} from "react";
+import {FlatList, View, StyleSheet, ViewProps} from "react-native";
 import {ChoiceRow} from "./ ChoiceRow";
+import {Checkbox} from "./Checkbox";
 import {ColorPalette} from "../ColorPalette";
 
-export type SelectableItem = {
+type SelectableItem = {
   id: string;
   name: string;
   isSelected: boolean;
 };
 
-type SingleChoiceListProps = ViewProps & {
+type MultiChoiceListProps = ViewProps & {
   items: SelectableItem[];
-  onItemSelected?: (item: SelectableItem) => void;
+  onSelectionChanged?: (id: string, isChecked: boolean) => void;
 };
 
-export const SingleChoiceList = ({
+export const MultiChoiceList = ({
   items,
-  onItemSelected,
+  onSelectionChanged,
   ...rootProps
-}: SingleChoiceListProps) => {
+}: MultiChoiceListProps) => {
   const renderItem = useCallback(({item}: {item: SelectableItem}) => {
     const dynamicLabelStyle = {
       color: item.isSelected ? ColorPalette.red : ColorPalette.black,
     };
-
     return (
       <ChoiceRow
         label={item.name}
-        onPress={() => onItemSelected?.(item)}
+        onPress={() => onSelectionChanged?.(item.id, !item.isSelected)}
+        labelPadding={8}
         labelStyle={dynamicLabelStyle}
       >
-        <RadioButton isSelected={item.isSelected} />
+        <Checkbox isChecked={item.isSelected} />
       </ChoiceRow>
     );
   }, []);

@@ -6,7 +6,7 @@ import {
   Text,
 } from "react-native";
 import {ColorPalette} from "../ColorPalette";
-import Chevron from "../../assets/frame.svg";
+import Chevron from "../../assets/chevron.svg";
 
 type PrimaryButtonProps = TouchableOpacityProps & {
   label: string;
