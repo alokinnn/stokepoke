@@ -10,7 +10,7 @@ export type SelectableItem = {
 
 type SingleChoiceListProps = ViewProps & {
   items: SelectableItem[];
-  onItemSelected: (item: SelectableItem) => void;
+  onItemSelected?: (item: SelectableItem) => void;
 };
 
 export const SingleChoiceList = ({

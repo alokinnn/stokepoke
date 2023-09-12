@@ -3,3 +3,8 @@ export type BottomNavigatorParamList = {
   Favorites: undefined;
   Cart: undefined;
 };
+
+export type HomeStackNavigatorParamList = {
+  BowlTypeSelection: undefined;
+  OrderConfiguration: undefined;
+};

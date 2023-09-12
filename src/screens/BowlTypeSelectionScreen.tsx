@@ -5,12 +5,15 @@ import {StepIndicatorHeader} from "../components/StepIndicatorHeader";
 import {SelectableItem, SingleChoiceList} from "../components/SingleChoiceList";
 import {useCallback, useState} from "react";
 import {PrimaryButton} from "../components/PrimaryButton";
+import {useNavigation} from "@react-navigation/native";
 
 export const BowlTypeSelectionScreen = () => {
   const source = [
     {id: "234", name: "meat", isSelected: false},
     {id: "4322423", name: "vegan", isSelected: false},
   ];
+
+  const navigation = useNavigation();
 
   const [items, setItems] = useState(source);
 
@@ -21,6 +24,10 @@ export const BowlTypeSelectionScreen = () => {
     source[matchedItemIndex].isSelected = true;
     setItems(source);
   }, []);
+
+  const handleNextPress = () => {
+    navigation.navigate("OrderConfiguration");
+  };
 
   return (
     <View>
@@ -37,7 +44,11 @@ export const BowlTypeSelectionScreen = () => {
             />
           </ChoiceSegment>
         </CardContainer>
-        <PrimaryButton label="Nexttt" style={style.buttonContainer} />
+        <PrimaryButton
+          label="Nexttt"
+          style={style.buttonContainer}
+          onPress={handleNextPress}
+        />
       </ScrollView>
     </View>
   );
