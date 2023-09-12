@@ -8,6 +8,7 @@ import {
 
 type ChoiceRowProps = TouchableOpacityProps & {
   label: string;
+  detailLabel?: string;
   labelPadding?: number;
   labelStyle?: TextStyle;
 };
@@ -15,6 +16,7 @@ type ChoiceRowProps = TouchableOpacityProps & {
 export const ChoiceRow = ({
   children,
   label,
+  detailLabel,
   labelPadding,
   labelStyle,
   ...rootProps
@@ -26,8 +28,9 @@ export const ChoiceRow = ({
       style={[styles.cellContainer, rootProps.style]}
     >
       {children}
-      <Text style={[styles.labelStyle, dynamicLabelStyle, labelStyle]}>
-        {label}
+      <Text style={[styles.rootLabelSpannable, dynamicLabelStyle]}>
+        <Text style={[styles.label, labelStyle]}>{label}</Text>
+        {detailLabel ? <Text> ({detailLabel})</Text> : null}
       </Text>
     </TouchableOpacity>
   );
@@ -38,9 +41,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
-  labelStyle: {
+  rootLabelSpannable: {
     fontSize: 16,
     lineHeight: 24,
+  },
+  label: {
     fontWeight: "700",
   },
 });

@@ -10,7 +10,12 @@ import {useNavigation} from "@react-navigation/native";
 export const OrderConfigurationScreen = () => {
   const source = [
     {id: "234", name: "meat", isSelected: true},
-    {id: "4322423", name: "vegan", isSelected: false},
+    {
+      id: "4322423",
+      name: "vegan",
+      isSelected: false,
+      additionalDetail: "adasd 53 cacas",
+    },
   ];
 
   const navigation = useNavigation();

@@ -7,6 +7,7 @@ import {ColorPalette} from "../ColorPalette";
 export type SelectableItem = {
   id: string;
   name: string;
+  additionalDetail?: string;
   isSelected: boolean;
 };
 
@@ -29,6 +30,7 @@ export const SingleChoiceList = ({
       <ChoiceRow
         label={item.name}
         onPress={() => onItemSelected?.(item)}
+        detailLabel={item.additionalDetail}
         labelStyle={dynamicLabelStyle}
       >
         <RadioButton isSelected={item.isSelected} />
