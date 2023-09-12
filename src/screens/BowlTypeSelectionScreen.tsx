@@ -4,7 +4,7 @@ import {ChoiceSegment} from "../components/ChoiceSegment";
 import {StepIndicatorHeader} from "../components/StepIndicatorHeader";
 import {SelectableItem, SingleChoiceList} from "../components/SingleChoiceList";
 import {useCallback, useState} from "react";
-import {PrimaryButton} from "../components/PrimaryButton";
+import {Button} from "../components/Button";
 import {useNavigation} from "@react-navigation/native";
 
 export const BowlTypeSelectionScreen = () => {
@@ -44,10 +44,11 @@ export const BowlTypeSelectionScreen = () => {
             />
           </ChoiceSegment>
         </CardContainer>
-        <PrimaryButton
+        <Button
           label="Nexttt"
           style={style.buttonContainer}
           onPress={handleNextPress}
+          showChevron
         />
       </ScrollView>
     </View>

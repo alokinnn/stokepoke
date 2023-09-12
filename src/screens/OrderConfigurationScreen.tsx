@@ -4,12 +4,20 @@ import {CardContainer} from "../components/CardContainer";
 import {ChoiceSegment} from "../components/ChoiceSegment";
 import {SingleChoiceList} from "../components/SingleChoiceList";
 import {MultiChoiceList} from "../components/MultiChoiceList";
+import {Button} from "../components/Button";
+import {useNavigation} from "@react-navigation/native";
 
 export const OrderConfigurationScreen = () => {
   const source = [
     {id: "234", name: "meat", isSelected: true},
     {id: "4322423", name: "vegan", isSelected: false},
   ];
+
+  const navigation = useNavigation();
+
+  const handleBackPress = () => {
+    navigation.goBack();
+  };
 
   return (
     <View>
@@ -39,6 +47,11 @@ export const OrderConfigurationScreen = () => {
             <MultiChoiceList items={source} onSelectionChanged={() => {}} />
           </ChoiceSegment>
         </CardContainer>
+
+        <View style={styles.buttonContainer}>
+          <Button label="Backkk" type="secondary" onPress={handleBackPress} />
+          <Button label="Nextt" style={styles.nextButton} showChevron />
+        </View>
       </ScrollView>
     </View>
   );
@@ -47,5 +60,13 @@ export const OrderConfigurationScreen = () => {
 const styles = StyleSheet.create({
   segmentSpacing: {
     paddingTop: 30,
+  },
+  buttonContainer: {
+    flexDirection: "row",
+    paddingHorizontal: 15,
+    paddingVertical: 30,
+  },
+  nextButton: {
+    marginStart: 15,
   },
 });
