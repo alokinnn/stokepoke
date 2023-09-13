@@ -7,4 +7,5 @@ export type BottomNavigatorParamList = {
 export type HomeStackNavigatorParamList = {
   BowlTypeSelection: undefined;
   OrderConfiguration: undefined;
+  ExtraIngredientSelection: undefined;
 };
