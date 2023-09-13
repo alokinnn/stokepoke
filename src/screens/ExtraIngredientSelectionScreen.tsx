@@ -25,9 +25,10 @@ export const ExtraIngredientSelectionScreen = () => {
 
   const navigation = useNavigation();
 
-  const handleBackPress = () => {
-    navigation.goBack();
-  };
+  const handleBackPress = () => navigation.goBack();
+
+  const handleOrderSummaryNavigation = () =>
+    navigation.navigate("OrderSummary");
 
   return (
     <View>
@@ -54,7 +55,12 @@ export const ExtraIngredientSelectionScreen = () => {
 
         <View style={styles.buttonContainer}>
           <Button label="Backkk" type="secondary" onPress={handleBackPress} />
-          <Button label="Nextt" style={styles.nextButton} showChevron />
+          <Button
+            label="Nextt"
+            style={styles.nextButton}
+            showChevron
+            onPress={handleOrderSummaryNavigation}
+          />
         </View>
       </ScrollView>
     </View>

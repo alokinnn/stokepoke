@@ -8,4 +8,5 @@ export type HomeStackNavigatorParamList = {
   BowlTypeSelection: undefined;
   OrderConfiguration: undefined;
   ExtraIngredientSelection: undefined;
+  OrderSummary: undefined;
 };
