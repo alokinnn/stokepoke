@@ -7,6 +7,7 @@ import {Separator} from "../components/Separator";
 import {Button} from "../components/Button";
 import Star from "../../assets/star.svg";
 import {ColorPalette} from "../ColorPalette";
+import {useNavigation} from "@react-navigation/native";
 
 export const OrderSummaryScreen = () => {
   const includedIngredients = [
@@ -31,10 +32,17 @@ export const OrderSummaryScreen = () => {
     },
   ];
 
+  const navigation = useNavigation();
+
+  const handleAddToCart = () => {
+    //TODO: Rest of the logic
+    navigation.navigate("BowlTypeSelection");
+  };
+
   return (
     <View>
       <ScrollView>
-        <StepIndicatorHeader currentStep={3} totalSteps={4} />
+        <StepIndicatorHeader currentStep={4} totalSteps={4} />
         <CardContainer>
           <PriceSummaryLine
             label="Salmon something"
@@ -73,7 +81,7 @@ export const OrderSummaryScreen = () => {
             <View style={styles.addToFavoritesButton}>
               <Star width={24} height={24} color={ColorPalette.black} />
             </View>
-            <Button label="Add to Cart translate" />
+            <Button label="Add to Cart translate" onPress={handleAddToCart} />
           </View>
           <Button
             label="Go to checkout"
