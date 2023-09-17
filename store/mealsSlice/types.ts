@@ -3,6 +3,9 @@ export type InitialState = {
 };
 
 export type Bowl = {
-  id: string;
+  id: number;
   name: string;
+  description: string;
+  image?: object;
+  imagePath: string;
 };
